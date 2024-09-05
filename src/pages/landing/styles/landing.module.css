@@ -1,0 +1,25 @@
+.container {
+  height: 19em;
+  position: relative;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3em;
+  gap: 3em;
+  color: white;
+  background-image: url("https://i.pinimg.com/564x/4d/25/8f/4d258f4a93dbd833c360788125364e61.jpg");
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #033c6bb9;
+  }
+}

@@ -1,0 +1,3 @@
+interface ApiParams {
+  tab: string;
+}

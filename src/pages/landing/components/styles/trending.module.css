@@ -1,0 +1,25 @@
+.trendingContainer {
+  background-image: url("https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg");
+  background-repeat: no-repeat;
+  background-size: 1400px;
+  background-position: 50% 200px;
+}
+
+.scrollbar {
+  &,
+  &:hover {
+    background-color: light-dark("transparent", var(--primary-color));
+  }
+
+  &[data-orientation="horizontal"] .thumb {
+    background-color: var(--mantine-color-gray-1);
+  }
+}
+
+.corner {
+  background-color: light-dark(
+    var(--mantine-color-gray-0),
+    var(--mantine-color-dark-6)
+  );
+  opacity: 1;
+}

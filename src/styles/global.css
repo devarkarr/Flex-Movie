@@ -1,0 +1,43 @@
+:root {
+  --primary-color: #0174d3;
+  --root-color: #03243f;
+}
+
+:where([data-mantine-color-scheme="light"]) .m_1738fcb2:where([data-active]) {
+  color: rgb(251, 253, 255) !important;
+}
+
+.m_d57069b5 {
+  overflow: visible !important;
+}
+
+.m_599a2148:where(:first-child) {
+  margin-top: 0 !important;
+  border-top: none !important;
+}
+
+.m_b5489c3c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--mb-padding, var(--mantine-spacing-xs)) !important;
+  padding-inline-end: calc(
+    var(--mb-padding, var(--mantine-spacing-md)) -
+      calc(0.3125rem * var(--mantine-scale))
+  );
+  position: sticky;
+  top: 0;
+  background-color: var(--mantine-color-body);
+  z-index: 1000;
+  min-height: calc(2rem * var(--mantine-scale)) !important;
+  transition: padding-inline-end 100ms;
+}
+
+.m_d0e2b9cd {
+  background-color: black !important;
+}
+
+.m_5df29311 {
+  padding: 0 !important;
+  overflow: hidden;
+}

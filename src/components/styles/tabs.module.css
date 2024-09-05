@@ -1,0 +1,11 @@
+.root {
+  border-radius: rem(30);
+}
+.label {
+  padding: 0.25em 1.5em;
+}
+.indicator {
+  border-radius: rem(50);
+  background-color: #032541;
+  color: white !important;
+}

@@ -1,0 +1,18 @@
+.imageHover {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.09);
+  }
+  &:hover .play {
+    transform: scale(1.3);
+  }
+}
+
+.play {
+  position: absolute;
+  transition: transform 0.2s ease-in-out;
+  top: 32%;
+  left: 40%;
+  color: white;
+}
