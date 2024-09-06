@@ -8,7 +8,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { navLinks } from "../assets/navLinks";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
 
 const appName = import.meta.env.VITE_APP_NAME;
@@ -55,7 +55,7 @@ const Header = ({ smallScreen }: { smallScreen: boolean | undefined }) => {
     >
       <Flex h={"100%"} gap={60} align={"center"}>
         <Text fz={23} fw={700} c={colors.flex[0]}>
-          {appName}
+          <Link to={"/"} style={{textDecoration:'none'}}>{appName}</Link>
         </Text>
         {!smallScreen && (
           <Flex gap={30} wrap={"wrap"}>
