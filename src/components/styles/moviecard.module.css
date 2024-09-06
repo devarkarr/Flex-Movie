@@ -1,7 +1,6 @@
 .score {
-  width: 40px;
+  width: 40px !important;
   height: 40px;
-  display: inline-block;
   background-color: #081c22;
   border-radius: 50%;
 }
