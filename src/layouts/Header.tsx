@@ -67,7 +67,7 @@ const Header = ({ opened, toggle }: HeaderProps) => {
       <Flex h={"100%"} gap={60} align={"center"}>
         <Link to={"/"} style={{ textDecoration: "none" }}>
           <Flex align={'center'} gap={5}>
-            <Image src={Logo} w={50} />
+            <Image src={Logo} w={50} alt="flex-movie-logo"/>
             <Text fz={22} fw={700} c={colors.flex[0]}>
               {appName}
             </Text>
