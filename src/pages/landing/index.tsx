@@ -17,9 +17,9 @@ const Landing = () => {
       title={AppName}
       description="flex movie by arkarlin"
       keywords={['flex', 'movie']}
-      siteUrl="http://localhost:5173"
+      siteUrl="https://flex-movie-ashen.vercel.app"
       image={{
-        src: 'http://localhost:5173/flex-movie.png'
+        src: 'https://flex-movie-ashen.vercel.app/flex-movie.png'
       }}
       />
       <Box className={classes.container}>
