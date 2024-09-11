@@ -1,20 +1,43 @@
-import { Box, Modal } from "@mantine/core"
-import ReactPlayer from "react-player/lazy"
+import { Box, Modal } from "@mantine/core";
+import ReactPlayer from "react-player";
+import classes from "./styles/watchmodal.module.css";
+import { useVideosQuery } from "../store/server/video/queries";
+import Loader from "./Loader";
 
 interface WatchModalType {
-    opened:boolean,
-    onClose:()=> void,
-    
+  videoId: number;
+  opened: boolean;
+  onClose: () => void;
 }
-const WatchModal = ({opened,onClose}:WatchModalType) => {
-
+const WatchModal = ({ videoId, opened, onClose }: WatchModalType) => {
+  const { data, isFetching, isError } = useVideosQuery(videoId);
+  const video = data?.results[0];
   return (
-    <Modal opened={opened} bg={'black'} size={'70%'} onClose={onClose} centered>
-      <Box >
-        <ReactPlayer width={'100%'} playing url={'https://youtu.be/flgTXzSRHHY?si=TjtBgj0v3EPD_yDR'}/>
+    <Modal
+      classNames={{
+        header: classes.header,
+      }}
+      opened={opened}
+      title={video?.name}
+      bg={"black"}
+      size={"70%"}
+      onClose={onClose}
+      centered
+    >
+      <Box w={"100%"} h={"100%"} bg={"black"}>
+        {isFetching || isError ? (
+          <Loader />
+        ) : (
+          <ReactPlayer
+            width={"100%"}
+            height={"500px"}
+            controls
+            url={`https://www.youtube.com/watch?v=${video?.key}`}
+          />
+        )}
       </Box>
     </Modal>
-  )
-}
+  );
+};
 
-export default WatchModal
+export default WatchModal;

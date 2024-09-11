@@ -4,7 +4,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   transition: all 0.3s ease-in-out;
-
+  padding-left: 3em;
+  padding-right: 3em;
+  @media screen and (max-width: 480px) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
   &::before {
     content: "";
     position: absolute;

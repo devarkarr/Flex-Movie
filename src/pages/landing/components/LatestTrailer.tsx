@@ -19,14 +19,15 @@ const LatestTrailer = () => {
   const { data, isPending, isError } = useFetchLatestTrailers({
     tab: currentTab,
   });
+  const [videoId, setVideoId] = useState<number | null>(null);
 
-  const watchMovie = () => {
+  const watchMovie = (id: number) => {
+    setVideoId(id);
     open();
   };
 
   return (
     <Box
-      px={30}
       py={20}
       pb={28}
       className={classes.latestContainer}
@@ -58,7 +59,11 @@ const LatestTrailer = () => {
         </Flex>
       </ScrollArea>
 
-      <WatchModal opened={opened} onClose={close} />
+{
+  videoId && (
+    <WatchModal videoId={videoId} opened={opened} onClose={close} />
+  )
+}
     </Box>
   );
 };

@@ -4,16 +4,30 @@ import Trending from "./components/Trending";
 import LatestTrailer from "./components/LatestTrailer";
 import Popular from "./components/Popular";
 import Leaderboard from "./components/Leaderboard";
+import useSmallScreen from "../../hooks/useSmallScreen";
+import SEO from '@americanexpress/react-seo';
+
+const AppName = import.meta.env.VITE_APP_NAME;
 
 const Landing = () => {
+  const smallScreen = useSmallScreen()
   return (
     <Box>
+      <SEO
+      title={AppName}
+      description="flex movie by arkarlin"
+      keywords={['flex', 'movie']}
+      siteUrl="http://localhost:5173"
+      image={{
+        src: 'http://localhost:5173/flex-movie.png'
+      }}
+      />
       <Box className={classes.container}>
         <Box pos={"relative"}>
-          <Title order={1} fw={700}>
+          <Title order={smallScreen ? 1 : 2} fw={700}>
             Welcome.
           </Title>
-          <Title order={2} fw={500}>
+          <Title order={smallScreen ? 2 : 3} fw={500}>
             Millions of movies, TV shows and people to discover. Explore now.
           </Title>
         </Box>

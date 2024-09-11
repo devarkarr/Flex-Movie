@@ -26,7 +26,7 @@ const MovieCard = ({ movie }: MovieCardType) => {
           bottom={"-1.2em"}
           left={"0.8em"}
         >
-          <VoteAverageCircle rate={Number(movie.vote_average.toFixed(1))} />
+          <VoteAverageCircle rate={Number(movie.vote_average.toFixed(1)) * 10} />
         </Flex>
       </Box>
       <Text style={{ textAlign: "center" }} fw={500} size={"16px"} mt={32}>

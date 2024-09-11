@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@americanexpress/react-seo": "^1.4.2",
     "@mantine/core": "^7.12.2",
     "@mantine/hooks": "^7.12.2",
     "@tabler/icons-react": "^3.14.0",
     "@tanstack/react-query": "^5.53.2",
+    "@types/americanexpress__react-seo": "^1.4.3",
     "axios": "^1.7.7",
+    "clsx": "^2.1.1",
     "react": "^18.2.0",
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",

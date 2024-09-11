@@ -5,20 +5,21 @@ import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import Loader from "../components/Loader";
 import Footer from "./Footer";
-import { useMediaQuery } from "@mantine/hooks";
+import { useDisclosure } from "@mantine/hooks";
 
 function App() {
+  const [opened, { toggle }] = useDisclosure();
 
-  const smallScreen = useMediaQuery('(max-width:1082px)')
+
   return (
     <AppShell
       padding="md"
       header={{
-        height: rem(40),
+        height: rem(40)
       }}
     >
       <AppShell.Header h={60} style={{ border: 0 }}>
-        <Header smallScreen={smallScreen}/>
+        <Header opened={opened} toggle={toggle}/>
       </AppShell.Header>
       <AppShell.Main px={0}>
         <Content>

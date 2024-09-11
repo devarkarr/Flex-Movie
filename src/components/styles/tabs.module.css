@@ -1,5 +1,6 @@
 .root {
   border-radius: rem(30);
+  padding: 0.09em !important;
 }
 .label {
   padding: 0.25em 1.5em;

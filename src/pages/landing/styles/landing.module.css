@@ -22,4 +22,7 @@
     left: 0;
     background-color: #033c6bb9;
   }
+  @media screen and (max-width: 480px) {
+    padding: 0 1.5em;
+  }
 }

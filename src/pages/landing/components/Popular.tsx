@@ -10,7 +10,7 @@ const Popular = () => {
   const [currentTab, setCurrentTab] = useTvSeriesTab("popular");
   const { data, isPending, isError } = useFetchTvSeries();
   return (
-    <Box px={30} py={20}>
+    <Box className={classes.popular}  py={20}>
       <Tabs
         title={"What's Popular"}
         currentTab={currentTab === "popular" ? "Popular" : ''}

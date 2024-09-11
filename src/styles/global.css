@@ -1,6 +1,7 @@
 :root {
   --primary-color: #0174d3;
-  --root-color: #03243f;
+  --root-color: #032541;
+  --secondary-color: #dadada;
 }
 
 :where([data-mantine-color-scheme="light"]) .m_1738fcb2:where([data-active]) {
@@ -40,4 +41,8 @@
 .m_5df29311 {
   padding: 0 !important;
   overflow: hidden;
+}
+
+.m_220c80f2:where(:not([data-disabled], :disabled)):hover {
+  background-color: transparent !important;
 }

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private/
+Allow: /public/
+
+Sitemap: http://localhost:5173/sitemap.xml

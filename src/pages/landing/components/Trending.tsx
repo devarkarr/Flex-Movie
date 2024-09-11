@@ -11,7 +11,7 @@ const Trending = () => {
   const { data, isPending, isError } = useFetchTrendingMovies({tab:currentTab as string});
 
   return (
-    <Box px={30} py={20} className={classes.trendingContainer}>
+    <Box  py={20} className={classes.trendingContainer}>
       <Tabs title={"Trending"} currentTab={currentTab === 'day' ? 'Today' : 'This Week' as string} setCurrentTab={setCurrentTab} tabs={["Today", "This Week"]} />
       <ScrollArea scrollbars={"x"} pb={25} w={"100%"} mt={25} classNames={classes}>
         <Flex gap={20} w={"100%"}>

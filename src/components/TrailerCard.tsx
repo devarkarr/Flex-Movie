@@ -6,7 +6,7 @@ import { TrailterMovieType } from "../store/server/latest-trailer/interface";
 const imageUrl = import.meta.env.VITE_TMDB_IMAGE_URL;
 
 interface TrailerCardType {
-  watchMovie: () => void;
+  watchMovie: (id:number) => void;
   setBgTrailer: React.Dispatch<React.SetStateAction<string | null>>;
   trailer: TrailterMovieType;
 }
@@ -19,7 +19,7 @@ const TrailerCard = ({
   return (
     <Card w={300} bg={"transparent"}>
       <Card.Section
-        onClick={watchMovie}
+        onClick={()=>watchMovie(trailer.id)}
         onMouseEnter={() => setBgTrailer(trailer.poster_path)}
         pos={"relative"}
         className={classes.imageHover}

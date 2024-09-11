@@ -1,5 +1,6 @@
 import {
   ActionIcon,
+  Burger,
   Flex,
   Group,
   Popover,
@@ -10,8 +11,15 @@ import {
 import { navLinks } from "../assets/navLinks";
 import { Link, NavLink } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
+import useSmallScreen from "../hooks/useSmallScreen";
+import classes from "./styles/header.module.css";
 
 const appName = import.meta.env.VITE_APP_NAME;
+
+interface HeaderProps {
+  opened: boolean;
+  toggle: () => void;
+}
 
 const menus = navLinks.map((nav) => (
   <Popover key={nav.title}>
@@ -44,19 +52,23 @@ const menus = navLinks.map((nav) => (
   </Popover>
 ));
 
-const Header = ({ smallScreen }: { smallScreen: boolean | undefined }) => {
+const Header = ({ opened, toggle }: HeaderProps) => {
   const { colors } = useMantineTheme();
+  const smallScreen = useSmallScreen("1082px");
+
   return (
     <SimpleGrid
       cols={2}
-      style={{ padding: "0 3em" }}
       h={"100%"}
       bg={colors.flex[10]}
+      className={classes.container}
     >
       <Flex h={"100%"} gap={60} align={"center"}>
-        <Text fz={23} fw={700} c={colors.flex[0]}>
-          <Link to={"/"} style={{textDecoration:'none'}}>{appName}</Link>
-        </Text>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          <Text fz={23} fw={700} c={colors.flex[0]}>
+            {appName}
+          </Text>
+        </Link>
         {!smallScreen && (
           <Flex gap={30} wrap={"wrap"}>
             {menus}
@@ -67,6 +79,7 @@ const Header = ({ smallScreen }: { smallScreen: boolean | undefined }) => {
         <ActionIcon variant="transparent" aria-label="Search">
           <IconSearch color="white" />
         </ActionIcon>
+        <Burger role="button" aria-label="burger" opened={opened} onClick={toggle} c={"white"} hiddenFrom="sm" />
       </Group>
     </SimpleGrid>
   );

@@ -1,0 +1,10 @@
+.iconBg {
+  display: flex;
+}
+
+.score {
+  width: 62px !important;
+  height: 62px;
+  background-color: #081c22;
+  border-radius: 50%;
+}

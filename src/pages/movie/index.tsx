@@ -1,66 +1,40 @@
 import {
   Box,
   Flex,
-  Group,
   Image,
-  List,
-  Stack,
-  Text,
-  Title,
 } from "@mantine/core";
 import { useParams } from "react-router-dom";
 import { useFetchMovieQuery } from "../../store/server/movie/queries";
 import classes from "./styles/movie.module.css";
-import VoteAverageCircle from "../../components/VoteAverageCircle";
+import Detail from "./components/Detail";
+import Loader from "../../components/Loader";
+import useSmallScreen from "../../hooks/useSmallScreen";
 
 const imageUrl = import.meta.env.VITE_TMDB_IMAGE_URL;
 const Movie = () => {
   const { movieId } = useParams();
+  const smallScreen = useSmallScreen()
+  const { data,isPending,isError } = useFetchMovieQuery(movieId);
 
-  const { data } = useFetchMovieQuery(movieId);
+  if(isPending || isError) return (<Loader/>)
   return (
     <Box
       className={classes.movieContainer}
-      p={"3em"}
+      p={smallScreen ? '1.5em' :"3em"}
       style={{
         backgroundImage: `url(${imageUrl + data?.backdrop_path})`,
       }}
     >
-      <Flex c={"white"} gap={30} pos={"relative"} style={{ zIndex: 3 }}>
-        <Box>
+      <Flex c={"white"} w='100%' gap={30} pos={"relative"} style={{ zIndex: 3 }}>
+        <Box w={smallScreen? '80%' :'40%'}>
           <Image
             radius={10}
-            width={300}
+            width={'100%'}
             height={450}
             src={imageUrl + data?.poster_path}
           />
         </Box>
-        <Box>
-          <Stack>
-            <Title order={2}>{data?.title}</Title>
-            <List>
-              <Group>
-                <Text>
-                  {data?.release_date} ({data?.origin_country[0]})
-                </Text>
-
-                <List.Item>
-                    <Flex>
-                  {data?.genres.map((genre) => (
-                      <Text key={genre.id}>{genre.name},</Text>
-                    ))}
-                    </Flex>
-                </List.Item>
-                <List.Item>
-                    1h 44m
-                </List.Item>
-              </Group>
-            </List>
-            <Box>
-                <VoteAverageCircle rate={2}/>
-            </Box>
-          </Stack>
-        </Box>
+        <Detail movie={data}/>
       </Flex>
     </Box>
   );
