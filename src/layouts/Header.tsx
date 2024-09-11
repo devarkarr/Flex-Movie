@@ -3,6 +3,7 @@ import {
   Burger,
   Flex,
   Group,
+  Image,
   Popover,
   SimpleGrid,
   Text,
@@ -13,7 +14,7 @@ import { Link, NavLink } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
 import useSmallScreen from "../hooks/useSmallScreen";
 import classes from "./styles/header.module.css";
-
+import Logo from "/flex-movie.png";
 const appName = import.meta.env.VITE_APP_NAME;
 
 interface HeaderProps {
@@ -65,9 +66,12 @@ const Header = ({ opened, toggle }: HeaderProps) => {
     >
       <Flex h={"100%"} gap={60} align={"center"}>
         <Link to={"/"} style={{ textDecoration: "none" }}>
-          <Text fz={23} fw={700} c={colors.flex[0]}>
-            {appName}
-          </Text>
+          <Flex align={'center'} gap={5}>
+            <Image src={Logo} w={50} />
+            <Text fz={22} fw={700} c={colors.flex[0]}>
+              {appName}
+            </Text>
+          </Flex>
         </Link>
         {!smallScreen && (
           <Flex gap={30} wrap={"wrap"}>
@@ -79,7 +83,14 @@ const Header = ({ opened, toggle }: HeaderProps) => {
         <ActionIcon variant="transparent" aria-label="Search">
           <IconSearch color="white" />
         </ActionIcon>
-        <Burger role="button" aria-label="burger" opened={opened} onClick={toggle} c={"white"} hiddenFrom="sm" />
+        <Burger
+          role="button"
+          aria-label="burger"
+          opened={opened}
+          onClick={toggle}
+          c={"white"}
+          hiddenFrom="sm"
+        />
       </Group>
     </SimpleGrid>
   );
