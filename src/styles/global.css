@@ -46,3 +46,8 @@
 .m_220c80f2:where(:not([data-disabled], :disabled)):hover {
   background-color: transparent !important;
 }
+
+.mantine-focus-auto:focus-visible {
+  outline: 0 !important;
+  outline-offset: calc(0.125rem * var(--mantine-scale));
+}

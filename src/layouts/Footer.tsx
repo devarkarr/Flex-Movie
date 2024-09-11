@@ -3,7 +3,7 @@ import { Box, Text } from "@mantine/core"
 const Footer = () => {
   return (
     <Box>
-        <Text>Clone by Ar Kar Lin</Text>
+        <Text>&copy;{new Date().getFullYear()} by Ar Kar Lin</Text>
     </Box>
   )
 }

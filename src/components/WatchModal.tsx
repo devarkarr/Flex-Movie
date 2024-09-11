@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 import classes from "./styles/watchmodal.module.css";
 import { useVideosQuery } from "../store/server/video/queries";
 import Loader from "./Loader";
+import useSmallScreen from "../hooks/useSmallScreen";
 
 interface WatchModalType {
   videoId: number;
@@ -10,8 +11,10 @@ interface WatchModalType {
   onClose: () => void;
 }
 const WatchModal = ({ videoId, opened, onClose }: WatchModalType) => {
+  const smallScreen = useSmallScreen()
   const { data, isFetching, isError } = useVideosQuery(videoId);
   const video = data?.results[0];
+
   return (
     <Modal
       classNames={{
@@ -20,7 +23,7 @@ const WatchModal = ({ videoId, opened, onClose }: WatchModalType) => {
       opened={opened}
       title={video?.name}
       bg={"black"}
-      size={"70%"}
+      size={smallScreen ? "100%" : "70%"}
       onClose={onClose}
       centered
     >
@@ -30,7 +33,7 @@ const WatchModal = ({ videoId, opened, onClose }: WatchModalType) => {
         ) : (
           <ReactPlayer
             width={"100%"}
-            height={"500px"}
+            height={smallScreen ? "300px" :"500px"}
             controls
             url={`https://www.youtube.com/watch?v=${video?.key}`}
           />
