@@ -1,5 +1,6 @@
 import { Box, Flex, Image, Stack, Text } from "@mantine/core";
 import { SearchMovieType } from "../../../store/server/trending/interface";
+import { Link } from "react-router-dom";
 
 const imageUrl = import.meta.env.VITE_TMDB_IMAGE_URL;
 
@@ -9,12 +10,16 @@ type Props = {
 
 const ResultCard = ({ movie }: Props) => {
   return (
-    <Flex gap={15} h={140}  style={{
-        border:'1px solid rgba(128, 128, 128, 0.300)',
-        borderRadius:7,
-        overflow:'hidden',
-        boxShadow:'0px 1px 3px rgba(128, 128, 128, 0.300)'
-    }}>
+    <Flex
+      gap={15}
+      h={140}
+      style={{
+        border: "1px solid rgba(128, 128, 128, 0.300)",
+        borderRadius: 7,
+        overflow: "hidden",
+        boxShadow: "0px 1px 3px rgba(128, 128, 128, 0.300)",
+      }}
+    >
       <Image
         w={95}
         h="100%"
@@ -24,15 +29,20 @@ const ResultCard = ({ movie }: Props) => {
       />
       <Stack py={5}>
         <Box>
-          <Text fz={17} fw={500} component='a' href={`/movie/${movie.id}`}>
-            {movie.title}
+          <Text fz={17} fw={500}>
+            <Link to={`/movie/${movie.id}`} style={{
+                textDecoration:'none',
+                color:'var(--mantine-color-gray-9)'
+            }}>{movie.title}</Link>
           </Text>
           <Text fz={15} fw={300} c={"gray"}>
             {movie.release_date}
           </Text>
         </Box>
         <Box>
-          <Text c="var(--mantine-color-gray-7)" fz={13}>{movie.overview}</Text>
+          <Text c="var(--mantine-color-gray-7)" fz={13}>
+            {movie.overview}
+          </Text>
         </Box>
       </Stack>
     </Flex>
