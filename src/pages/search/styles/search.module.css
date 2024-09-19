@@ -1,0 +1,7 @@
+.searchContainer {
+  padding: 2em 3em;
+  @media screen and (max-width: 480px) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+}

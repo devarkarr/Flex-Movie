@@ -20,6 +20,7 @@ const appName = import.meta.env.VITE_APP_NAME;
 interface HeaderProps {
   opened: boolean;
   toggle: () => void;
+  searchOpenedHandler:()=>void
 }
 
 const menus = navLinks.map((nav) => (
@@ -53,7 +54,7 @@ const menus = navLinks.map((nav) => (
   </Popover>
 ));
 
-const Header = ({ opened, toggle }: HeaderProps) => {
+const Header = ({ opened, toggle,searchOpenedHandler }: HeaderProps) => {
   const { colors } = useMantineTheme();
   const smallScreen = useSmallScreen("1082px");
 
@@ -80,7 +81,7 @@ const Header = ({ opened, toggle }: HeaderProps) => {
         )}
       </Flex>
       <Group justify="end" align="center">
-        <ActionIcon variant="transparent" aria-label="Search">
+        <ActionIcon variant="transparent" onClick={searchOpenedHandler} aria-label="Search">
           <IconSearch color="white" />
         </ActionIcon>
         <Burger

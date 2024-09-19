@@ -6,6 +6,7 @@ import Detail from "./components/Detail";
 import Loader from "../../components/Loader";
 import useSmallScreen from "../../hooks/useSmallScreen";
 import TopBilledCast from "./components/TopBilledCast";
+import Status from "./components/Status";
 
 const imageUrl = import.meta.env.VITE_TMDB_IMAGE_URL;
 const Movie = () => {
@@ -41,8 +42,9 @@ const Movie = () => {
           <Detail movie={data} />
         </Flex>
       </Box>
-      <Flex p={smallScreen ? "1.5em" : "1.5em 3em"}>
+      <Flex p={smallScreen ? "1.5em" : "1.5em 3em"} gap={20} w="100%">
         <TopBilledCast movieId={movieId as string}/>
+        <Status/>
       </Flex>
     </Box>
   );

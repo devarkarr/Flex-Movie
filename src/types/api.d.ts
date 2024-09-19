@@ -1,3 +1,4 @@
 interface ApiParams {
-  tab: string;
+  tab?: string;
+  query?: string;
 }

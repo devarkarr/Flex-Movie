@@ -8,7 +8,7 @@ const TopBilledCast = ({ movieId }: { movieId: string }) => {
   const { data, isPending, isError } = useCreditsQuery(movieId);
   console.log(data?.cast);
   return (
-    <Box w="100%">
+    <Box w="77%">
       <Title pos={"relative"} order={3} fw={600}>
         Top Billed Cast
       </Title>

@@ -4,6 +4,10 @@
   --secondary-color: #dadada;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
 :where([data-mantine-color-scheme="light"]) .m_1738fcb2:where([data-active]) {
   color: rgb(251, 253, 255) !important;
 }

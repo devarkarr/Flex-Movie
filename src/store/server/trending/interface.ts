@@ -1,3 +1,6 @@
+import { z } from "zod";
+import { searchMovieData } from "./schema";
+
 export interface MovieType {
   adult: boolean;
   backdrop_path: string;
@@ -15,3 +18,5 @@ export interface MovieType {
   vote_average: number;
   vote_count: number;
 }
+
+export type SearchMovieType = z.infer<typeof searchMovieData>;

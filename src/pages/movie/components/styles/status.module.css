@@ -1,0 +1,23 @@
+.playIcon {
+  background-color: #57afd5;
+  animation-name: play;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes play {
+  from {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
+  }
+  to {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+}

@@ -7,7 +7,7 @@ import { TrailterMovieType } from "./interface";
 const fetchLatestTrailers = async (payload: ApiParams) => {
   const { tab } = payload;
   const response = await axios.get(
-    `movie/${tab.toLowerCase() === "popular" ? "popular" : "top_rated"}`,
+    `movie/${tab?.toLowerCase() === "popular" ? "popular" : "top_rated"}`,
     {
       headers: authJsonHeader(),
     }

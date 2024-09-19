@@ -6,11 +6,23 @@ import Popular from "./components/Popular";
 import Leaderboard from "./components/Leaderboard";
 import useSmallScreen from "../../hooks/useSmallScreen";
 import SEO from '@americanexpress/react-seo';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AppName = import.meta.env.VITE_APP_NAME;
 
 const Landing = () => {
   const smallScreen = useSmallScreen()
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate()
+  const searchHandler = () => {
+      navigate(
+        `/search/movie?query=${search.replace(" ", "-").toLowerCase()}`,
+        {
+          replace: true,
+        }
+      );
+  };
   return (
     <Box>
       <SEO
@@ -34,10 +46,12 @@ const Landing = () => {
         <Box pos={"relative"}>
           <TextInput
             size="md"
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}
             radius={50}
-            placeholder="Search for a movie,tv show, person....."
+            placeholder="Search for a movie....."
           />
-          <Button pos={"absolute"} size="md" top={0} right={0} bg={"var(--root-color)"} radius={50}>
+          <Button onClick={searchHandler} pos={"absolute"} size="md" top={0} right={0} bg={"var(--root-color)"} radius={50}>
             Search
           </Button>
         </Box>
