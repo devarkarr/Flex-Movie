@@ -15,7 +15,7 @@ const Search = () => {
   const smallScreen = useSmallScreen()
   return (
     <Box w="100%" className={classes.searchContainer}>
-      <Flex justify="space-between">
+      <Flex justify="space-between" gap={20}>
         <Stack
           w={smallScreen ? 0 :250}
           style={{

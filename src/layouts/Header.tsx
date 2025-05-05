@@ -20,11 +20,11 @@ const appName = import.meta.env.VITE_APP_NAME;
 interface HeaderProps {
   opened: boolean;
   toggle: () => void;
-  searchOpenedHandler:()=>void
+  searchOpenedHandler: () => void;
 }
 
 const menus = navLinks.map((nav) => (
-  <Popover key={nav.title}>
+  <Popover key={nav.title} position='bottom-start'>
     <Popover.Target>
       <Text
         component="button"
@@ -45,7 +45,15 @@ const menus = navLinks.map((nav) => (
     <Popover.Dropdown>
       <Flex direction={"column"} gap={10}>
         {nav.subNavs.map((link) => (
-          <NavLink key={link.slug} to={link.slug}>
+          <NavLink
+            key={link.slug}
+            to={link.slug}
+            style={{
+              textDecoration: "none",
+              color:'black',
+              fontSize:'13px'
+            }}
+          >
             {link.name}
           </NavLink>
         ))}
@@ -54,7 +62,7 @@ const menus = navLinks.map((nav) => (
   </Popover>
 ));
 
-const Header = ({ opened, toggle,searchOpenedHandler }: HeaderProps) => {
+const Header = ({ opened, toggle, searchOpenedHandler }: HeaderProps) => {
   const { colors } = useMantineTheme();
   const smallScreen = useSmallScreen("1082px");
 
@@ -67,8 +75,8 @@ const Header = ({ opened, toggle,searchOpenedHandler }: HeaderProps) => {
     >
       <Flex h={"100%"} gap={60} align={"center"}>
         <Link to={"/"} style={{ textDecoration: "none" }}>
-          <Flex align={'center'} gap={5}>
-            <Image src={Logo} w={50} alt="flex-movie-logo"/>
+          <Flex align={"center"} gap={5}>
+            <Image src={Logo} w={50} alt="flex-movie-logo" />
             <Text fz={22} fw={700} c={colors.flex[0]}>
               {appName}
             </Text>
@@ -81,7 +89,11 @@ const Header = ({ opened, toggle,searchOpenedHandler }: HeaderProps) => {
         )}
       </Flex>
       <Group justify="end" align="center">
-        <ActionIcon variant="transparent" onClick={searchOpenedHandler} aria-label="Search">
+        <ActionIcon
+          variant="transparent"
+          onClick={searchOpenedHandler}
+          aria-label="Search"
+        >
           <IconSearch color="white" />
         </ActionIcon>
         <Burger
